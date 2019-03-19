@@ -1,7 +1,6 @@
 {
-  "name": "redux-blog",
+  "name": "haypoll",
   "version": "1.0.0",
-  "description": "a redux blog",
   "main": "src/index.js",
   "scripts": {
     "test": "jest --verbose",
@@ -13,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/m-c-squared/redux-blog.git"
+    "url": "git+https://github.com/a-pole-of-hay/haypoll-client"
   },
   "keywords": [],
   "author": "",
