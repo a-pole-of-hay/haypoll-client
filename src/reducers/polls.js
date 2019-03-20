@@ -13,7 +13,8 @@ const initialState = {
   polls: [],
   options: [],
   option: '',
-  question: ''
+  question: '',
+  user: ''
 };
 
 export default function reducer(state = initialState, { type, payload }) {
@@ -21,11 +22,14 @@ export default function reducer(state = initialState, { type, payload }) {
     case CREATE_POLL:
       return {
         ...state,
-        polls: [...state.list, payload],
+        polls: [...state.polls, payload],
         loading: false
       };
     case CREATE_POLL_PENDING:
-      return { ...state, loading: true };
+      return { 
+        ...state, 
+        loading: true 
+      };
     case CREATE_POLL_ERROR:
       return {
         ...state,
@@ -45,7 +49,7 @@ export default function reducer(state = initialState, { type, payload }) {
     case ADD_OPTION:
       return {
         ...state,
-        options: [...state, payload]
+        options: [...state.options, payload]
       };
     default:
       return state;
