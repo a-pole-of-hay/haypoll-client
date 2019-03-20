@@ -5,7 +5,6 @@ import {
   getQuestion, 
   isLoading 
 } from './polls';
-import { stat } from 'fs';
 
 describe('polls selector', () => {
   let state;
