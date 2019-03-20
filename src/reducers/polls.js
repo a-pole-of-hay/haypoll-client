@@ -1,55 +1,34 @@
 import {
-  CREATE_POLL,
-  CREATE_POLL_PENDING,
-  CREATE_POLL_ERROR,
-  UPDATE_OPTION,
-  UPDATE_QUESTION,
-  ADD_OPTION
+  FETCH_POLLS,
+  FETCH_POLLS_ERROR,
+  FETCH_POLLS_PENDING
 } from '../actions/polls';
 
 const initialState = {
   loading: false,
   error: null,
   polls: [],
-  options: [],
-  option: '',
-  question: '',
   user: ''
 };
 
 export default function reducer(state = initialState, { type, payload }) {
   switch(type) {
-    case CREATE_POLL:
+    
+    case FETCH_POLLS:
       return {
         ...state,
-        polls: [...state.polls, payload],
-        loading: false
+        polls: payload
       };
-    case CREATE_POLL_PENDING:
-      return { 
-        ...state, 
-        loading: true 
+    case FETCH_POLLS_PENDING:
+      return {
+        ...state,
+        loading: true
       };
-    case CREATE_POLL_ERROR:
+    case FETCH_POLLS_ERROR:
       return {
         ...state,
         loading: false,
         error: payload
-      };
-    case UPDATE_QUESTION:
-      return {
-        ...state,
-        question: payload
-      };
-    case UPDATE_OPTION:
-      return {
-        ...state,
-        option: payload
-      };
-    case ADD_OPTION:
-      return {
-        ...state,
-        options: [...state.options, payload]
       };
     default:
       return state;

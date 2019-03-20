@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { getQuestion, getOption, getOptions } from '../selectors/polls';
 import CreatePoll from '../components/polls/CreatePoll';
-import { updateQuestion, updateOption, createPoll, addOption } from '../actions/polls';
+import { updateQuestion, updateOption, createPoll, addOption } from '../actions/pollForm';
 import PropTypes from 'prop-types';
 
 class CreatePollContainer extends PureComponent {
@@ -39,7 +39,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch) => ({
   onAdd(option) {
     event.preventDefault();
-    // console.log(event);
     dispatch(addOption(option));
   },
 
@@ -51,13 +50,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(factoryMethod[target.name](target.value));
   },
 
-  // onPost(event) {
-  //   event.preventDefault();
-  // },
-
   onSubmit(question, options, event) {
     event.preventDefault();
-    dispatch(createPoll(question, options));
+    dispatch(createPoll({ question, options }));
   }
 });
 
