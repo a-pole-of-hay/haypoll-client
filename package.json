@@ -4,9 +4,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest --verbose",
+    "test:watch": "npm run test -- --watch",
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test:watch": "npm run test -- --watch",
     "start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
     "build": "webpack -p"
   },
@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "normalize.css": "^8.0.1",
+    "promise-middleware-redux": "^1.0.5",
     "radium": "^0.25.1",
     "react": "^16.8.2",
     "react-animations": "^1.0.0",

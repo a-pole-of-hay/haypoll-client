@@ -1,16 +1,27 @@
-import { CREATE_POLL, CREATE_POLL_PENDING, CREATE_POLL_ERROR } from '../actions/polls';
+import {
+  CREATE_POLL,
+  CREATE_POLL_PENDING,
+  CREATE_POLL_ERROR,
+  UPDATE_OPTION,
+  UPDATE_QUESTION,
+  ADD_OPTION
+} from '../actions/polls';
 
 const initialState = {
   loading: false,
   error: null,
-  polls: []
+  polls: [],
+  options: [],
+  option: '',
+  question: ''
 };
 
-export default function reducer(state = initialState, action) {
-  switch(action.type) {
+export default function reducer(state = initialState, { type, payload }) {
+  switch(type) {
     case CREATE_POLL:
-      return { ...state,
-        list: [...state.list, action.payload],
+      return {
+        ...state,
+        polls: [...state.list, payload],
         loading: false
       };
     case CREATE_POLL_PENDING:
@@ -19,7 +30,24 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        error: action.payload
+        error: payload
       };
+    case UPDATE_QUESTION:
+      return {
+        ...state,
+        question: payload
+      };
+    case UPDATE_OPTION:
+      return {
+        ...state,
+        option: payload
+      };
+    case ADD_OPTION:
+      return {
+        ...state,
+        options: [...state, payload]
+      };
+    default:
+      return state;
   }
 }
