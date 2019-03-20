@@ -1,16 +1,22 @@
 import { connect } from 'react-redux';
-import { getQuestion, getOption } from '../selectors/polls';
+import { getQuestion, getOption, getOptions } from '../selectors/polls';
 import CreatePoll from '../components/polls/CreatePoll';
-import { updateQuestion, updateOption, createPoll } from '../actions/polls';
+import { updateQuestion, updateOption, createPoll, addOption } from '../actions/polls';
 
 const mapStateToProps = state => ({
   question: getQuestion(state),
-  option: getOption(state)
-  // options: getOptions(state),
+  option: getOption(state),
+  options: getOptions(state)
   // loading: isLoading(state)
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
+  onAdd(option) {
+    event.preventDefault();
+    // console.log(event);
+    dispatch(addOption(option));
+  },
+  
   onChange({ target }) {
     const factoryMethod = {
       question: updateQuestion,
@@ -19,10 +25,13 @@ const mapDispatchToProps = dispatch => ({
     dispatch(factoryMethod[target.name](target.value));
   },
 
-  onSubmit(question, option, event) {
-    console.log('event', event);
+  onPost(event) {
     event.preventDefault();
-    dispatch(createPoll(question, option));
+  },
+
+  onSubmit(question, options, event) {
+    event.preventDefault();
+    dispatch(createPoll(question, options));
   }
 });
 

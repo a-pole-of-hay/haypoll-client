@@ -4,3 +4,9 @@ export const postPoll = poll => {
     { question, options, user }
   ]); 
 };
+
+export const postOption = option => {
+  return Promise.all([
+    option
+  ]);
+};
