@@ -1,10 +1,10 @@
 import React from 'react';
-import CreatePoll from '../Polls/CreatePoll';
+import PollFormContainer from '../../containers/PollFormContainer';
 
 export default function App() {
   return (
     <> 
-      <CreatePoll />
+      <PollFormContainer />
     </>
   );
 }
