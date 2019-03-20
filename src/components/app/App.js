@@ -1,7 +1,10 @@
 import React from 'react';
+import CreatePoll from '../Polls/CreatePoll';
 
 export default function App() {
   return (
-    <h1>HELLO WORLD</h1> 
+    <> 
+      <CreatePoll />
+    </>
   );
 }
