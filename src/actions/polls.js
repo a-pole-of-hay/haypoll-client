@@ -1,5 +1,5 @@
 import { createAction } from 'promise-middleware-redux';
-import { getPolls } from '../selectors/polls';
+import { getPolls } from '../services/polls';
 
 export const [
   fetchPolls,
@@ -7,4 +7,4 @@ export const [
   FETCH_POLLS_PENDING,
   FETCH_POLLS_FULFILLED,
   FETCH_POLLS_ERROR
-] = createAction('FETCH_POLE', getPolls);
+] = createAction('FETCH_POLLS', getPolls);

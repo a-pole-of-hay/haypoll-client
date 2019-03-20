@@ -5,8 +5,6 @@ export const postPoll = poll => {
   ]); 
 };
 
-export const postOption = option => {
-  return Promise.all([
-    option
-  ]);
+export const getPolls = polls => {
+  return Promise.all([polls]);
 };

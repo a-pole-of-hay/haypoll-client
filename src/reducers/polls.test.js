@@ -5,8 +5,8 @@ import {
   CREATE_POLL, 
   CREATE_POLL_PENDING,
   CREATE_POLL_FULFILLED
-} from '../actions/polls';
-import reducer from './polls';
+} from '../actions/pollForm';
+import reducer from './pollForm';
 
 describe('polls reducer', () => {
   let state;
