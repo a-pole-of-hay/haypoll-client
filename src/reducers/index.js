@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import pollForm from './polls';
+import polls from './polls';
 
 export default combineReducers({
-  pollForm
+  polls
 });
