@@ -3,7 +3,7 @@ import { CREATE_POLL, CREATE_POLL_PENDING, CREATE_POLL_ERROR } from '../actions/
 const initialState = {
   loading: false,
   error: null,
-  polls: [] 
+  polls: []
 };
 
 export default function reducer(state = initialState, action) {
