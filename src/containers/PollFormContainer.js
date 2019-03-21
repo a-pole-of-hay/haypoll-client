@@ -4,6 +4,7 @@ import { getQuestion, getOption, getOptions } from '../selectors/polls';
 import CreatePoll from '../components/polls/CreatePoll';
 import { updateQuestion, updateOption, createPoll, addOption } from '../actions/pollForm';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class CreatePollContainer extends PureComponent {
   static propTypes = {
@@ -17,6 +18,7 @@ class CreatePollContainer extends PureComponent {
   render() {
     const { question, option, options, onChange, onAdd, onSubmit } = this.props;
     return (
+      <>
       <CreatePoll
         question={question}
         options={options}
@@ -25,6 +27,8 @@ class CreatePollContainer extends PureComponent {
         onAdd={onAdd}
         onSubmit={onSubmit}
       />
+      <Link to="/">Home</Link>
+      </>
     );
   }
 }

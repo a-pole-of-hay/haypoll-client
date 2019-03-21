@@ -7,13 +7,12 @@ import {
 const initialState = {
   loading: false,
   error: null,
-  polls: [],
+  polls: [{ question: 'hello?', options: ['hi'] }],
   user: ''
 };
 
 export default function reducer(state = initialState, { type, payload }) {
   switch(type) {
-    
     case FETCH_POLLS:
       return {
         ...state,
